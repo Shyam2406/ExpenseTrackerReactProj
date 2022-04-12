@@ -17,12 +17,7 @@ export const Sidebar = () => {
             </Link>
           </li>
 
-          <li className="sidebar-item">
-            <Link className="sidebar-link" to="/Role">
-              <i className="align-middle" data-feather="book"></i>{" "}
-              <span className="align-middle">Add Income</span>
-            </Link>
-          </li>
+         
           <li className="sidebar-item">
             <Link className="sidebar-link" to="/GetRole">
               <i className="align-middle" data-feather="book"></i>{" "}
@@ -40,14 +35,14 @@ export const Sidebar = () => {
           <li className="sidebar-item">
             <Link className="sidebar-link" to="/Subs">
               <i className="align-middle" data-feather="square"></i>{" "}
-              <span className="align-middle">Subscription</span>
+              <span className="align-middle">About Us</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
             <a className="sidebar-link" href="ui-forms.html">
               <i className="align-middle" data-feather="check-square"></i>{" "}
-              <span className="align-middle">Forms</span>
+              <span className="align-middle">Contact Us</span>
             </a>
           </li>
 
