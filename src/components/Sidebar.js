@@ -12,38 +12,45 @@ export const Sidebar = () => {
         <ul className="sidebar-nav">
           <li className="sidebar-item active">
             <Link className="sidebar-link" to="/">
-              <i className="align-middle" data-feather="sliders"></i>
+              <i className="align-middle" data-feather="home"></i>
               <span className="align-middle">Dashboard</span>
             </Link>
           </li>
 
          
           <li className="sidebar-item">
-            <Link className="sidebar-link" to="/GetRole">
-              <i className="align-middle" data-feather="book"></i>{" "}
+            <Link className="sidebar-link" to="/Expenses">
+              <i className="align-middle" data-feather="trending-up"></i>{" "}
               <span className="align-middle">Add Expenses</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
-            <Link className="sidebar-link" to="/GetRole">
-              <i className="align-middle" data-feather="book"></i>{" "}
+            <Link className="sidebar-link" to="/Report">
+              <i className="align-middle" data-feather="file-text"></i>{" "}
               <span className="align-middle">Generate Report</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
-            <Link className="sidebar-link" to="/Subs">
+            <Link className="sidebar-link" to="/PerBill">
+              <i className="align-middle" data-feather="bold"></i>{" "}
+              <span className="align-middle">Personal Bill</span>
+            </Link>
+          </li>
+
+          <li className="sidebar-item">
+            <Link className="sidebar-link" to="/About">
               <i className="align-middle" data-feather="square"></i>{" "}
               <span className="align-middle">About Us</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
-            <a className="sidebar-link" href="ui-forms.html">
-              <i className="align-middle" data-feather="check-square"></i>{" "}
+          <Link className="sidebar-link" to="/Contact">
+              <i className="align-middle" data-feather="send"></i>{" "}
               <span className="align-middle">Contact Us</span>
-            </a>
+            </Link>
           </li>
 
           <li className="sidebar-header">My Account</li>
@@ -56,10 +63,10 @@ export const Sidebar = () => {
           </li>
 
           <li className="sidebar-item">
-            <a className="sidebar-link" href="pages-sign-up.html">
+          <Link className="sidebar-link" to="/SignUp">
               <i className="align-middle" data-feather="user-plus"></i>{" "}
               <span className="align-middle">Sign Up</span>
-            </a>
+            </Link>
           </li>
 
           <li className="sidebar-item">
@@ -70,10 +77,10 @@ export const Sidebar = () => {
           </li>
 
           <li className="sidebar-item">
-            <a className="sidebar-link" href="pages-sign-up.html">
+          <Link className="sidebar-link" to="/LogOut">
               <i className="align-middle" data-feather="log-out"></i>{" "}
               <span className="align-middle">Sign Out</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
