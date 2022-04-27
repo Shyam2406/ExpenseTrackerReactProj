@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
-export const Footer = () => {
+export const AdminFooter = () => {
   return (
+    
     <footer className="footer">
 				<div className="container-fluid">
 					<div className="row text-muted">
@@ -33,4 +33,8 @@ export const Footer = () => {
   )
 }
 
-export default Footer;
+export default AdminFooter
+
+
+
+

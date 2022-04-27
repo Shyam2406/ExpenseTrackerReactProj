@@ -1,27 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import {useEffect, useState} from 'react';
 
 
+export const AdminNavbar = () => {
 
-export const Navbar = () => {
-
-    var [email, setemail] = useState('')
-    
-    const getlocalStorageData = async () => {
-    var email = localStorage.getItem("email")
-    email = email;
-    alert(email)
-  }
-
-  
-  
-  useEffect(() =>{
-      setemail(localStorage.getItem("email"))
-      getlocalStorageData() 
-  })
-
-
+   
 
   return (
     <nav className="navbar navbar-expand navbar-light navbar-bg">
@@ -35,7 +18,7 @@ export const Navbar = () => {
                         <a className="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
                             <div className="position-relative">
                                 <i className="align-middle" data-feather="bell"></i>
-                                <span className="indicator">0</span>
+                                <span className="indicator">4</span>
                             </div>
                         </a>
                         <div className="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
@@ -103,18 +86,12 @@ export const Navbar = () => {
                         </a>
 
                         <a className="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                           Welcome Dear,  {email ?<span className="text-dark"> {email} </span> :<span> Please login </span>}
+                             <span className="text-dark"> Welcome to Admin Dashboard</span>
                         </a>
                         <div className="dropdown-menu dropdown-menu-end">
-                            <Link className="dropdown-item"  to="/Dashboard/Prof"><i className="align-middle me-1" data-feather="user"></i> Profile</Link>
-                            <a className="dropdown-item" href="#"><i className="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
-                            <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="index.html"><i className="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
-                            <a className="dropdown-item" href="#"><i className="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
-                            <div className="dropdown-divider"></div>
-                            {/* Only For users Dashboard */}
-                            {/* <Link className="dropdown-item" to="/Logout">Log out</Link> */}
-                            <Link className="dropdown-item" to="/Dashboard/Logout">Log out</Link>
+                           
+                            
+                            <Link className="dropdown-item" to="/Logout">Log out</Link>
                         </div>
                     </li>
                 </ul>
@@ -123,4 +100,12 @@ export const Navbar = () => {
   )
 }
 
-export default Navbar;
+export default AdminNavbar
+
+
+
+
+
+
+
+  

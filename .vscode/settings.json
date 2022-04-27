@@ -20,5 +20,8 @@
         "HTML (EEx)",
         "HTML (Eex)",
         "plist"
-    ]
+    ],
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
 }
