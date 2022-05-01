@@ -1,21 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
+
 const AdminContact = () => {
 
 
- /*  const [contactList, setcontactList] = useState([])
+  const [contactusList, setcontactusList] = useState([])
 
 
   const getData = () => {
     axios.get(`http://localhost:5000/contactus`).then((res) => {
-      console.log(res.data.data);
-      setcontactList(res.data.data);
+      
+      setcontactusList(res.data.data);
     });
   };
 
   const DeleteData = (_id) =>{
     axios.delete(`http://localhost:5000/contactus/${_id}`).then((res) => {
+      console.log(_id);
+      alert("Data Deleted");
       getData();
     });
   }
@@ -29,39 +32,39 @@ const AdminContact = () => {
 
 
 
-
   return (
     <div>
-
-
-<h1 className="h3 mb-3"> Contact Us Message From Users</h1>
-
 
 <div className="row">
  <div>
    <div className="card">
-    
+   <div className="card-header">
+              <h5 className="card-title">Total Query From Contact us</h5>
+            </div>
      <table className="table table-bordered">
        <thead>
          <tr>
          <th>Sr.No</th>
-           <th>User Name</th>
-           <th>Email</th>
-           <th>Message</th>
+         <th>User Name</th>
+           <th>User Email</th>
+           <th>User Problem</th>
            <th>Action</th>
          </tr>
        </thead>
-       {
-         contactList.map((contact,i) =>{
+       <tbody>
+         {
+         contactusList.map((contactus,i) =>{
            return(
          <tr>
-           <td key={contact._id}>{i+1}</td>
-           <td>{contact.Name}</td>
-           <td>{contact.email}</td>
-           <td>{contact.Description}</td>
-           <td className="table-action">
+           <td key={contactus._id}>{i+1}</td>
+           <td>{contactus.Name}</td>
+           <td>{contactus.email}</td>
+           <td>{contactus.Description}</td>
           
-             <button onClick={() => DeleteData(contact._id)} type="button" className="btn btn-danger">Delete</button>
+           <td className="table-action">
+                      
+
+             <button onClick={() => DeleteData(contactus._id)} type="button" className="btn btn-danger">Delete</button>
             
           </td>
            
@@ -70,6 +73,8 @@ const AdminContact = () => {
            );
          })
          }
+         
+       </tbody>
      </table>
      
          
@@ -77,13 +82,10 @@ const AdminContact = () => {
  </div>
 </div>
 
+
       
-
-
-
-    </div> 
-    )*/
-  
+    </div>
+  )
 }
 
 export default AdminContact

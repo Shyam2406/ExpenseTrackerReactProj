@@ -41,11 +41,16 @@ const SignUp = () => {
 		
 	
 		if(localStorage.getItem("userId")){
-			navigate('/Dashboard/MyDashboard')
+			toast.error("You are Alredy login");
+			setTimeout(() => {
+                navigate('/MyDashboard')
+            },2000);
+
+			
 	
 		}
 		else{
-		  navigate('/Dashboard/')
+		  navigate('/')
 		}
 	}, [])
 
@@ -70,7 +75,7 @@ const SignUp = () => {
 				alert(`Email : ${email} \n Password : ${password}`)
             toast.success(res.data.msg);
             setTimeout(() => {
-                navigate('/Dashboard/Signin')
+                navigate('/Signin')
             },5000);
 
             }
@@ -81,7 +86,7 @@ const SignUp = () => {
                 toast.error(res.data.msg);
 
                 setTimeout(() => {
-                    navigate('/Dashboard/')
+                    navigate('/')
                 },5000);
             }
 		})

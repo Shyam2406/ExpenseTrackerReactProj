@@ -8,6 +8,8 @@ import AdminContact from '../ExpenseAdmin/AdminContact';
 import AdminFooter from './AdminComponents/AdminFooter';
 import AdminSignin from '../ExpenseAdmin/AdminSignin';
 import AdminLogout from '../ExpenseAdmin/AdminLogout';
+import AdminIncomeRecord from '../ExpenseAdmin/AdminIncomeRecord';
+import AdminExpenseRecord from '../ExpenseAdmin/AdminExpenseRecord'
 
 
 const AdminDashboard = () => {
@@ -26,6 +28,8 @@ const AdminDashboard = () => {
              <Route path='/' element={<AdminSignin/>}></Route>
              <Route path='/AdminContact' element={<AdminContact/>}></Route>
              <Route path='/MyAdminDashboard' element={<MyAdminDashboard/>}></Route>
+             <Route path='/AdminIncomeRecord' element={<AdminIncomeRecord/>}></Route>
+             <Route path='/AdminExpenseRecord' element={<AdminExpenseRecord/>}></Route>
              <Route path='/AdminLogout' element={<AdminLogout/>}></Route>
            
              </Routes>

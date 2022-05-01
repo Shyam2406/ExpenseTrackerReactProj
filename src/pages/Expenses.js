@@ -57,9 +57,10 @@ const Expenses = () => {
 
   /* Fetch Data Api */
   const getData = () => {
-    axios.get(`http://localhost:5000/expensestablewise/${userId}`).then((res) => {
+    let id = localStorage.getItem("userId")
+    axios.get(`http://localhost:5000/expensestablewise/${id}`).then((res) => {
       console.log(res.data.data);
-      console.log(userId);
+      console.log(id);
     
       setexpenseList(res.data.data);
     });
@@ -84,7 +85,7 @@ const Expenses = () => {
 
     }
     else{
-      navigate('/Dashboard/')
+      navigate('/')
     }
 
   }, [])
@@ -126,7 +127,7 @@ const Expenses = () => {
 			    			
 						
 										<div className="mb-3">
-											<label className="form-label">Expense Details</label>
+											<label className="form-label">Expense CategoryWise Details</label>
 											<input className="form-control form-control-lg" type="text" name="ExpenseDetails" placeholder="Enter your Expense Details" onChange={(e) => setExpenseDetails(e.target.value)} required/>
 										</div>
 
@@ -189,6 +190,7 @@ const Expenses = () => {
                   <th>Sr.No</th>
                   <th>Expense Name</th>
                   <th>Amount</th>
+                  <th>Date</th>
                   <th>Payment Type</th>
                   <th>Actions</th>
                 </tr>
@@ -201,11 +203,11 @@ const Expenses = () => {
                   <td key={expense._id}>{i+1}</td>
                   <td>{expense.ExpenseName}</td>
                   <td>{expense.ExpenseAmount}</td>
-                  
-                  <td className="d-none d-md-table-cell">{expense.PaymentMethod}</td>
+                  <td>{expense.Date}</td>
+                  <td >{expense.PaymentMethod}</td>
                   <td className="table-action">
                   
-                  <Link to ={`/Dashboard/ExpenseUpdate/${expense._id}`} className="btn btn-secondary">Update</Link>
+                  <Link to ={`/ExpenseUpdate/${expense._id}`} className="btn btn-secondary">Update</Link>
                   <button onClick={() => DeleteData(expense._id)} type="button" className="btn btn-danger">Delete</button>
 
                   

@@ -5,21 +5,22 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router';
 
-const IncomeUpdate = () => {
-    var id = useParams().incomeId;
-    console.log("Id--", id);
+const PerBillUpdate = () => {
+
+    var id = useParams().billId;
+    
     var navigate = useNavigate();
 
     const [data, setdata] = useState('')
-   
-    const [Amount, setAmount] = useState(data.Amount)
-    const [Description, setDescription] = useState(data.Description)
-    const [Date, setDate] = useState(data.Date)
+    const [billName, setbillName] = useState(data.billName)
+    const [billAmount, setbillAmount] = useState(data.billAmount)
+    const [billCategoryName, setbillCategoryName] = useState(data.billCategoryName)
+    const [billDueDate, setbillDueDate] = useState(data.billDueDate)
 
     const getData = () => {
-        axios.get(`http://localhost:5000/incomes/${id}`).then((res) => {
+        axios.get(`http://localhost:5000/bills/${id}`).then((res) => {
             setdata(res.data.data);
-            console.log("**", res.data.data);
+            
         })
     }
 
@@ -29,17 +30,18 @@ const IncomeUpdate = () => {
 
     const update = (e) => {
         var updatedData = {
-            Amount: Amount,
-            Description: Description,
-            Date: Date
+           billName: billName,
+           billAmount: billAmount,
+           billCategoryName: billCategoryName,
+           billDueDate: billDueDate
         };
         e.preventDefault();
 
-        axios.put(`http://localhost:5000/incomes/${id}`, updatedData).then((res) => {
+        axios.put(`http://localhost:5000/bills/${id}`, updatedData).then((res) => {
             if(res.data.status === 200){
 
 
-                alert("Update Data")
+                alert("Updated Data")
                 toast.success(res.data.msg);
                 setTimeout(() => {
                     navigate('/MyDashboard')
@@ -53,20 +55,20 @@ const IncomeUpdate = () => {
                 toast.error(res.data.msg);
 
                 setTimeout(() => {
-                    navigate('/IncomeUpdate')
+                    navigate('/PerBillUpdate')
                 },5000);
             }
         });
     };
 
     
-    return (
-        <div>
-           <div className="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+  return (
+    <div>
+      <div className="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
 					<div className="d-table-cell align-middle">
 
 						<div className="text-center mt-4">
-							<h1 className="h2">Update Income Details</h1>
+							<h1 className="h2">Update Personal Bill Details</h1>
 						</div>
 
 						<div className="card">
@@ -74,29 +76,31 @@ const IncomeUpdate = () => {
 								<div className="m-sm-4">
 									<form onSubmit={update}>
 								
-										
+										<div className="mb-3">
+											<label className="form-label">Bill Name</label>
+											<input className="form-control form-control-lg" type="text" id="bill_Name" name="BillName"  defaultValue={data.billName} onChange={(e) => setbillName(e.target.value)} required />
+                                            
+                    </div>
 
 										<div className="mb-3">
-											<label className="form-label">Income Amount</label>
-											<input className="form-control form-control-lg" type="number" id="IncomeAmount" name="Amount" defaultValue={data.Amount}  onChange={(e) => setAmount(e.target.value)} required/>
+											<label className="form-label">Bill Amount</label>
+											<input className="form-control form-control-lg" type="number" id="bill_amount" name="BillAmount" defaultValue={data.billAmount}  onChange={(e) => setbillAmount(e.target.value)} required/>
 										</div>
 
 
                     <div className="mb-3">
-											<label className="form-label">Income Details</label>
-											<input className="form-control form-control-lg" type="text" id="Description" name="Description" defaultValue={data.Description}   onChange={(e) => setDescription(e.target.value)} required/>
+											<label className="form-label">Bill Category</label>
+											<input className="form-control form-control-lg" type="text" id=" ExpenseDetails" name="BillCategory" defaultValue={data.billCategoryName}   onChange={(e) => setbillCategoryName(e.target.value)} required/>
 										</div>
 
                                         <div className="mb-3">
-											<label className="form-label">Income Date</label>
-											<input className="form-control form-control-lg" type="date" id=" Date" name="date" defaultValue={data.Date}  onChange={(e) => setDate(e.target.value)} required/>
+											<label className="form-label">Bill Due Date</label>
+											<input className="form-control form-control-lg" type="date" id=" Date" name="date" defaultValue={data.billDueDate}  onChange={(e) => setbillDueDate(e.target.value)} required/>
 										</div>
-
-                                        
 												
 
 										<div className="text-center mt-3">
-											<input type="submit" value="Update Income Data"  className="btn btn-info btn-block"/>
+											<input type="submit" value="Update Bill Data"  className="btn btn-info btn-block"/>
                      
 										</div>
 
@@ -119,9 +123,8 @@ const IncomeUpdate = () => {
 
 					</div>
 				</div>
-        </div>
-    
+    </div>
   )
 }
 
-export default IncomeUpdate
+export default PerBillUpdate

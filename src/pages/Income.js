@@ -24,19 +24,22 @@ const Income = () => {
 	  setuserId(id)
     alert(id)
 	}
-
+  
   
   
 
   const getIncomeData = () => {
-    
-    axios.get(`http://localhost:5000/incomestablewise/${userId}`).then((res) =>{
-      console.log(res.data.data);
-      console.log(userId);
+    console.log(userId);
+    let id = localStorage.getItem("userId")
+    axios.get(`http://localhost:5000/incomestablewise/${id}`).then((res) =>{
+     /*  console.log(res.data.data); */
+      
       setincomeList(res.data.data);
     })
   }
     
+
+
 
 
   /* Insert Data Api */
@@ -100,14 +103,21 @@ const Income = () => {
     });
   }
 
+
+
   useEffect(() => {
+
     getIncomeData()
+
+   /*  if(userId){
+   
+    } */
     getlocalStorageData()
     if(localStorage.getItem("userId")){
 
     }
     else{
-      navigate('/Dashboard/')
+      navigate('/')
     }
 
   }, [])
@@ -224,7 +234,7 @@ const Income = () => {
                       <td className="d-none d-md-table-cell">{income.Date}</td>
                       <td className="table-action">
                       
-                      <Link to ={`/Dashboard/IncomeUpdate/${income._id}`} className="btn btn-secondary">Update</Link>
+                      <Link to ={`/IncomeUpdate/${income._id}`} className="btn btn-secondary">Update</Link>
                       <button onClick={() => DeleteData(income._id)} type="button" className="btn btn-danger">Delete</button>
 
                        

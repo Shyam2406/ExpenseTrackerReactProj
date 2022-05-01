@@ -61,7 +61,7 @@ const Prof = () => {
                 alert("Update Data")
                 toast.success(res.data.msg);
                 setTimeout(() => {
-                    navigate('/Dashboard/MyDashboard')
+                    navigate('/MyDashboard')
                 },2000);
 
                 }
@@ -73,7 +73,7 @@ const Prof = () => {
                 toast.error(res.data.msg);
 
                 setTimeout(() => {
-                    navigate('/Dashboard/Signin')
+                    navigate('/Signin')
                 },5000);
             }
         });

@@ -38,7 +38,7 @@ export const Navbar = () => {
                                 <span className="indicator">0</span>
                             </div>
                         </a>
-                        <div className="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
+                        {/* <div className="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
                             <div className="dropdown-menu-header">
                                 4 New Notifications
                             </div>
@@ -94,7 +94,7 @@ export const Navbar = () => {
                             <div className="dropdown-menu-footer">
                                 <a href="#" className="text-muted">Show all notifications</a>
                             </div>
-                        </div>
+                        </div> */}
                     </li>
                     
                     <li className="nav-item dropdown">
@@ -106,15 +106,15 @@ export const Navbar = () => {
                            Welcome Dear,  {email ?<span className="text-dark"> {email} </span> :<span> Please login </span>}
                         </a>
                         <div className="dropdown-menu dropdown-menu-end">
-                            <Link className="dropdown-item"  to="/Dashboard/Prof"><i className="align-middle me-1" data-feather="user"></i> Profile</Link>
-                            <a className="dropdown-item" href="#"><i className="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
+                            <Link className="dropdown-item"  to="/Prof"><i className="align-middle me-1" data-feather="user"></i> Profile</Link>
+                           {/*  <a className="dropdown-item" href="#"><i className="align-middle me-1" data-feather="pie-chart"></i> Analytics</a> */}
                             <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="index.html"><i className="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
-                            <a className="dropdown-item" href="#"><i className="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+                            <a className="dropdown-item" href="#"><i className="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
+                            <Link className="dropdown-item" to="/Contact"><i className="align-middle me-1" data-feather="help-circle"></i> Help Center</Link>
                             <div className="dropdown-divider"></div>
                             {/* Only For users Dashboard */}
                             {/* <Link className="dropdown-item" to="/Logout">Log out</Link> */}
-                            <Link className="dropdown-item" to="/Dashboard/Logout">Log out</Link>
+                            <Link className="dropdown-item" to="/Logout">Log out</Link>
                         </div>
                     </li>
                 </ul>

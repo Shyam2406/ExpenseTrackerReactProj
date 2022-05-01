@@ -21,6 +21,12 @@ const Signin = () => {
     const login = async (e) => {
         e.preventDefault();
 
+        if(email === 'admin123@gmail.com' && password === 'admin'){
+            navigate('/AdminDashboard/MyAdminDashboard') 
+        }
+
+        else{
+
         var data = {
             email:email,
             password:password
@@ -31,7 +37,7 @@ const Signin = () => {
             console.log(res.data);
             console.log("Axios called :", res.data.data);
 
-            if(res.data.status === 200){
+            if(res.data.status === 200 ){
 
                 localStorage.setItem("userId",res.data.data._id)
                 localStorage.setItem("email",res.data.data.email)
@@ -42,7 +48,7 @@ const Signin = () => {
                 alert(`Email : ${email} \n Password : ${password}`)
                 toast.success(res.data.msg);
                 setTimeout(() => {
-                    navigate('/Dashboard/MyDashboard')
+                    navigate('/MyDashboard')
                 },2000);
 
                 }
@@ -53,10 +59,12 @@ const Signin = () => {
                 toast.error(res.data.msg);
 
                 setTimeout(() => {
-                    navigate('/Dashboard/')
+                    navigate('/')
                 },5000);
             }
         })
+
+    }
 
         
     }
@@ -74,11 +82,11 @@ const Signin = () => {
 		getlocalStorageData()
 		
 		if(localStorage.getItem("userId")){
-			navigate('/Dashboard/MyDashboard')
+			
 	
 		}
 		else{
-		  navigate('/Dashboard/Signin')
+		  navigate('/Signin')
 		}
 	}, [])
 

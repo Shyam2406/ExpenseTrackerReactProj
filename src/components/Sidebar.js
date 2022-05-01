@@ -14,14 +14,14 @@ export const Sidebar = () => {
           {/* <li className="sidebar-item active"> */}
             {/* Only For User Dashboard */}
             {/* <Link className="sidebar-link" to="/MyDashboard"> */}
-            <Link className="sidebar-link" to="/Dashboard/MyDashboard">
+            <Link className="sidebar-link" to="/MyDashboard">
               <i className="align-middle" data-feather="home"></i>
               <span className="align-middle">Dashboard</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
-            <Link className="sidebar-link" to="/Dashboard/Income">
+            <Link className="sidebar-link" to="/Income">
               <i className="align-middle" data-feather="dollar-sign"></i>{" "}
               <span className="align-middle">Add Income</span>
             </Link>
@@ -29,7 +29,7 @@ export const Sidebar = () => {
 
          
           <li className="sidebar-item">
-            <Link className="sidebar-link" to="/Dashboard/Expenses">
+            <Link className="sidebar-link" to="/Expenses">
               <i className="align-middle" data-feather="trending-up"></i>{" "}
               <span className="align-middle">Add Expenses</span>
             </Link>
@@ -38,28 +38,28 @@ export const Sidebar = () => {
           
 
           <li className="sidebar-item">
-            <Link className="sidebar-link" to="/Dashboard/Report">
+            <Link className="sidebar-link" to="/Report">
               <i className="align-middle" data-feather="file-text"></i>{" "}
               <span className="align-middle">Generate Report</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
-            <Link className="sidebar-link" to="/Dashboard/PerBill">
+            <Link className="sidebar-link" to="/PerBill">
               <i className="align-middle" data-feather="bold"></i>{" "}
               <span className="align-middle">Personal Bill</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
-            <Link className="sidebar-link" to="/Dashboard/About">
+            <Link className="sidebar-link" to="/About">
               <i className="align-middle" data-feather="square"></i>{" "}
               <span className="align-middle">About Us</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
-          <Link className="sidebar-link" to="/Dashboard/Contact">
+          <Link className="sidebar-link" to="/Contact">
               <i className="align-middle" data-feather="send"></i>{" "}
               <span className="align-middle">Contact Us</span>
             </Link>
@@ -68,28 +68,28 @@ export const Sidebar = () => {
           <li className="sidebar-header">My Account</li>
 
           <li className="sidebar-item">
-            <Link className="sidebar-link" to="/Dashboard/Prof">
+            <Link className="sidebar-link" to="/Prof">
               <i className="align-middle" data-feather="user"></i>{" "}
               <span className="align-middle">Profile</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
-          <Link className="sidebar-link" to="/Dashboard/">
+          <Link className="sidebar-link" to="/">
               <i className="align-middle" data-feather="user-plus"></i>{" "}
               <span className="align-middle">Sign Up</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
-            <Link className="sidebar-link" to="/Dashboard/Signin">
+            <Link className="sidebar-link" to="/Signin">
               <i className="align-middle" data-feather="log-in"></i>{" "}
               <span className="align-middle">Sign In</span>
             </Link>
           </li>
 
           <li className="sidebar-item">
-          <Link className="sidebar-link" to="/Dashboard/LogOut">
+          <Link className="sidebar-link" to="/LogOut">
               <i className="align-middle" data-feather="log-out"></i>{" "}
               <span className="align-middle">Sign Out</span>
             </Link>

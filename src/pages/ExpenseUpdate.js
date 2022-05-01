@@ -43,7 +43,7 @@ export const ExpenseUpdate = () => {
                 alert("Update Data")
                 toast.success(res.data.msg);
                 setTimeout(() => {
-                    navigate('/Dashboard/MyDashboard')
+                    navigate('/MyDashboard')
                 },2000);
 
                 }
@@ -54,7 +54,7 @@ export const ExpenseUpdate = () => {
                 toast.error(res.data.msg);
 
                 setTimeout(() => {
-                    navigate('/Dashboard/ExpenseUpdate')
+                    navigate('/ExpenseUpdate')
                 },5000);
             }
         });

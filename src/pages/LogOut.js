@@ -8,7 +8,7 @@ const LogOut = () => {
   localStorage.clear()
 
   setTimeout(() => {
-    navigate('/Dashboard/')
+    navigate('/')
 },3000);
 
   return (

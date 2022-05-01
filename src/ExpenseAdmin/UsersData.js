@@ -15,6 +15,7 @@ const UsersData = () => {
 
   const DeleteData = (_id) =>{
     axios.delete(`http://localhost:5000/users/${_id}`).then((res) => {
+      alert("Data Deleted");
       getData();
     });
   }
@@ -45,6 +46,7 @@ const UsersData = () => {
            <th>User FirstName</th>
            <th>User LastName</th>
            <th>User Email</th>
+           
            <th>Action</th>
          </tr>
        </thead>
@@ -57,6 +59,7 @@ const UsersData = () => {
            <td>{user.firstName}</td>
            <td>{user.lastName}</td>
            <td>{user.email}</td>
+         
            <td className="table-action">
                       
 

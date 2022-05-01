@@ -2,32 +2,55 @@ import React from 'react'
 import {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-/* import { Line } from 'react-chartjs-2'; */
-/* import {ChartJs, Tooltip, Title, ArcElement, Legend} from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+import { Link } from "react-router-dom";
+import { Doughnut } from 'react-chartjs-2'
+/* import { Grid, Typography } from "@material-ui/core";
+import Chart from "react-apexcharts"; */
+/* import { Chart, ArcElement } from 'chart.js';
+import { Chart as ReactChart } from 'react-chartjs-2'; */
 
-ChartJs.register(
-  Tooltip, Title, ArcElement, Legend
-);
- */
-
-
-
-/* const data1 = {
-  datasets: [{
-      data: [10, 20, 30]
-  }],
-
-  // These labels appear in the legend and in the tooltips when hovering different arcs
-  labels: [
-      'Red',
-      'Yellow',
-      'Blue'
-  ]
-}; */
+/* Chart.register(ArcElement) */
 
 
 const MyDashboard = () => {
+
+  
+
+  /* const options = {
+    series: [2,3,4],
+    labels: ["Expense", "Income", "Personal Bill"],
+
+    plotOptions: {}
+  }
+  
+  const graphdata = [
+    {name : "Income" , value: 1000},
+    {name : "Expense" , value: 100},
+  ]; */
+
+
+ /*  const graphdata = {
+    labels : [
+      'Red',
+      'Blue',
+      'Yellow'
+    ],
+    datasets: [{
+      label:'My data',
+      data:[300,20,80],
+      backgroundColor:[
+        'rgb(255,99,132)',
+        'rgb(54,162,235)',
+        'rgb(255,205,86)',
+
+      ],
+      hoverOffset:4
+      
+
+    }]
+  }; */
+
+ 
 
   var userid ;
   const getlocalStorageData = async () => {
@@ -41,6 +64,7 @@ const MyDashboard = () => {
   const [data, setdata] = useState('')
   const [dataincome, setdataincome] = useState('')
   const [databill, setdatabill] = useState('')
+  const [databillcount, setdatabillcount] = useState('')
 
  
 
@@ -72,6 +96,16 @@ const MyDashboard = () => {
       setdatabill(res.data.databill);
     });
   };
+
+// Count number of bill like 1 , 2 
+  const getCountBillData = () => {
+    axios.get(`http://localhost:5000/billsCountTotal/${userid}`).then((res) => {
+      console.log(res.data.databillcount);
+      setdatabillcount(res.data.databillcount);
+    });
+  };
+
+
   
   useEffect(() =>{
 
@@ -79,12 +113,13 @@ const MyDashboard = () => {
     getIncomeData();
     getExpenseData();
     getBillData();
+    getCountBillData();
 
     if(localStorage.getItem("userId")){
 
     }
     else{
-      navigate('/Dashboard/')
+      navigate('/')
     }
 
   })
@@ -204,10 +239,10 @@ const MyDashboard = () => {
                  </div>
                  <h1 className="mt-1 mb-3">$ {databill}</h1>
                  <div className="mb-0">
-                   <a href="www.google.com">
-                   {/* <span className="text-muted">Total Pending Bill is</span>
-                   <span className="text-success"> <i className="mdi mdi-arrow-bottom-right"></i>: 3</span> */}
-                   </a>
+                   <Link to="/PerBill">
+                   <span className="text-muted">Total Pending Bill is</span>
+                   <span className="text-danger"> : {databillcount}</span>
+                   </Link>
                  </div>
                </div>
              </div>
@@ -233,11 +268,14 @@ const MyDashboard = () => {
 							<h1 className="h4">Income V/S Expense Graph</h1>
 						</div>
 
-                      <Pie data={data1}/>
+            <Doughnut data = {graphdata}></Doughnut>
+
+
+           
 					
 					</div>
-				</div>
- */}
+				</div> */}
+
 
 
 

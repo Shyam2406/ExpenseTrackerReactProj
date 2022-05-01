@@ -3,6 +3,7 @@ import React from 'react';
 import { useState, useEffect} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Link} from 'react-router-dom';
 
 const PerBill = () => {
 
@@ -12,6 +13,7 @@ const PerBill = () => {
   const [billCategoryName, setbillCategoryName] = useState('')
   const [billDueDate, setbillDueDate] = useState('')
   var [userId, setuserId] = useState('')
+  const [billList, setbillList] = useState([])
 
 
    
@@ -55,7 +57,28 @@ const PerBill = () => {
     
 }
 
+
+        const getData = () => {
+          let id = localStorage.getItem("userId")
+          axios.get(`http://localhost:5000/billofusertablewise/${id}`).then((res) => {
+            console.log(res.data.data);
+            console.log(id);
+            setbillList(res.data.data);
+          });
+        };
+
+  /* Delete Data Api */
+  const DeleteData = (_id) =>{
+    axios.delete(`http://localhost:5000/bills/${_id}`).then((res) => {
+      alert(res.data);
+      getData();
+    });
+  }
+
+
+
 useEffect(() => {
+  getData();
   
   getlocalStorageData()
  
@@ -130,6 +153,55 @@ useEffect(() => {
 
 					</div>
 				</div>
+
+
+        <div className="text-center mt-4">
+							<h1 className="h2">My Personal Bill</h1>
+							
+						</div>
+
+       <div className="row">
+        <div>
+          <div className="card">
+            
+            <table className="table table-bordered">
+              <thead>
+                <tr>
+                <th>Sr.No</th>
+                  <th>Bill Name</th>
+                  <th>Amount</th>
+                  <th>Bill Due Date</th>
+                  <th>Actions</th>  
+                </tr>
+              </thead>
+              <tbody>
+              {
+                billList.map ((bill,i) =>{
+                  return(
+                <tr key={i}>
+                  <td key={bill._id}>{i+1}</td>
+                  <td>{bill.billName}</td>
+                  <td>{bill.billAmount}</td>
+                  <td >{bill.billDueDate}</td>
+                  <td className="table-action">
+                  <Link to ={`/PerBillUpdate/${bill._id}`} className="btn btn-secondary">Update</Link>
+                  <button onClick={() => DeleteData(bill._id)} type="button" className="btn btn-danger">Delete</button>
+
+                  
+                  </td>
+                  
+                </tr>
+                  );
+                })
+                }
+                
+              </tbody>
+            </table>
+            
+                
+          </div>
+        </div>
+      </div>
   
     </div>
   )

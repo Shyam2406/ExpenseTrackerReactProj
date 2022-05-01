@@ -17,33 +17,34 @@ const Report = () => {
   var navigate = useNavigate();
   const [expenseList, setexpenseList] = useState([])
 
-  /* const getData = () => {
-    axios.get(`http://localhost:5000/expensestablewise/${userid}`).then((res) => {
+  const getData = () => {
+    let id = localStorage.getItem("userId")
+    axios.get(`http://localhost:5000/expensestablewise/${id}`).then((res) => {
+      console.log(id);
+      console.log(res.data.data);
+      setexpenseList(res.data.data);
+    });
+  };
+
+ /*  const getAllData = () => {
+    axios.get(`http://localhost:5000/expenses`).then((res) => {
       console.log(userid);
       console.log(res.data.data);
       setexpenseList(res.data.data);
     });
   }; */
 
-  const getAllData = () => {
-    axios.get(`http://localhost:5000/expenses`).then((res) => {
-      console.log(userid);
-      console.log(res.data.data);
-      setexpenseList(res.data.data);
-    });
-  };
-
 
   useEffect(() => {
-   /*  getData(); */
-    getAllData();
+    getData();
+    /* getAllData(); */
       getlocalStorageData()
   
       if(localStorage.getItem("userId")){
   
       }
       else{
-        navigate('/Dashboard/')
+        navigate('/')
       }
   
    
@@ -70,6 +71,7 @@ const Report = () => {
                   <th>Expense Name</th>
                   <th>Amount</th>
                   <th>Payment Type</th>
+                  <th>Date</th>
                  
                   
                 </tr>
@@ -82,9 +84,8 @@ const Report = () => {
                   <td key={expense._id}>{i+1}</td>
                   <td>{expense.ExpenseName}</td>
                   <td>{expense.ExpenseAmount}</td>
-                  
                   <td >{expense.PaymentMethod}</td>
-                  
+                  <td>{expense.Date}</td>
                 </tr>
                   );
                 })

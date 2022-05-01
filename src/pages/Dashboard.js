@@ -16,7 +16,7 @@ import SignUp from "../pages/SignUp";
 import LogOut from "../pages/LogOut";
 import ExpenseUpdate from "../pages/ExpenseUpdate";
 import IncomeUpdate from "../pages/IncomeUpdate";
-import ShowIncome from "../pages/ShowIncome";
+import PerBillUpdate from "../pages/PerBillUpdate";
 /* import AdMainDah from '../AdminEXp/AdMainDah'; */
 
 
@@ -42,7 +42,8 @@ export const Dashboard = () => {
             <Route path="/Contact" element={<Contact/>}></Route>
             <Route path="/ExpenseUpdate/:expenseId" element={<ExpenseUpdate/>}></Route>
             <Route path="/IncomeUpdate/:incomeId" element={<IncomeUpdate/>}></Route>
-            <Route path="/ShowIncome" element={<ShowIncome/>}></Route>
+            <Route path="/PerBillUpdate/:billId" element={<PerBillUpdate/>}></Route>
+            
 
           {/* User account */}
 

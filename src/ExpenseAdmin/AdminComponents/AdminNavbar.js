@@ -91,7 +91,7 @@ export const AdminNavbar = () => {
                         <div className="dropdown-menu dropdown-menu-end">
                            
                             
-                            <Link className="dropdown-item" to="/Logout">Log out</Link>
+                            <Link className="dropdown-item" to="/AdminDashboard/AdminLogout">Log out</Link>
                         </div>
                     </li>
                 </ul>

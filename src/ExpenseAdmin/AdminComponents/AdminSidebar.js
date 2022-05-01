@@ -25,6 +25,20 @@ export const AdminSidebar = () => {
           </Link>
         </li>
 
+        <li className="sidebar-item">
+        <Link className="sidebar-link" to="/AdminDashboard/AdminIncomeRecord">
+            <i className="align-middle" data-feather="database"></i>{" "}
+            <span className="align-middle">Show Income Record</span>
+          </Link>
+        </li>
+
+        <li className="sidebar-item">
+        <Link className="sidebar-link" to="/AdminDashboard/AdminExpenseRecord">
+            <i className="align-middle" data-feather="database"></i>{" "}
+            <span className="align-middle">Show Expense Recoed</span>
+          </Link>
+        </li>
+
        
         <li className="sidebar-item">
           <Link className="sidebar-link" to="/AdminDashboard/AdminContact">
@@ -36,12 +50,12 @@ export const AdminSidebar = () => {
         
 
        
-        <li className="sidebar-item">
+       {/*  <li className="sidebar-item">
           <Link className="sidebar-link" to="/AdminDashboard/">
             <i className="align-middle" data-feather="log-in"></i>{" "}
             <span className="align-middle">Sign In</span>
           </Link>
-        </li>
+        </li> */}
 
         <li className="sidebar-item">
         <Link className="sidebar-link" to="/AdminDashboard/AdminLogout">
