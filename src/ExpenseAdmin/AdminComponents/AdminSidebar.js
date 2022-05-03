@@ -28,14 +28,14 @@ export const AdminSidebar = () => {
         <li className="sidebar-item">
         <Link className="sidebar-link" to="/AdminDashboard/AdminIncomeRecord">
             <i className="align-middle" data-feather="database"></i>{" "}
-            <span className="align-middle">Show Income Record</span>
+            <span className="align-middle">Income Record</span>
           </Link>
         </li>
 
         <li className="sidebar-item">
         <Link className="sidebar-link" to="/AdminDashboard/AdminExpenseRecord">
             <i className="align-middle" data-feather="database"></i>{" "}
-            <span className="align-middle">Show Expense Recoed</span>
+            <span className="align-middle">Expense Record</span>
           </Link>
         </li>
 

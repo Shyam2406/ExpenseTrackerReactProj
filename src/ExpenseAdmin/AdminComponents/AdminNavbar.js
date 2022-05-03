@@ -15,7 +15,7 @@ export const AdminNavbar = () => {
             <div className="navbar-collapse collapse">
                 <ul className="navbar-nav navbar-align">
                     <li className="nav-item dropdown">
-                        <a className="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
+                       {/*  <a className="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
                             <div className="position-relative">
                                 <i className="align-middle" data-feather="bell"></i>
                                 <span className="indicator">4</span>
@@ -77,7 +77,7 @@ export const AdminNavbar = () => {
                             <div className="dropdown-menu-footer">
                                 <a href="#" className="text-muted">Show all notifications</a>
                             </div>
-                        </div>
+                        </div> */}
                     </li>
                     
                     <li className="nav-item dropdown">
