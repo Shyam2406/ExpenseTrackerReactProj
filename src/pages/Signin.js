@@ -113,7 +113,7 @@ const Signin = () => {
                                         </div>
 										<div className="mb-3">
 											<label className="form-label">Password</label>
-											<input className="form-control form-control-lg" type="password" name="password" placeholder="Enter password"  onChange={(e) => { setpassword(e.target.value) }}/>
+											<input className="form-control form-control-lg" type="password" name="password" placeholder="Enter password"  onChange={(e) => { setpassword(e.target.value) }} required/>
 										</div>
 
 												

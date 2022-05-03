@@ -120,13 +120,13 @@ const SignUp = () => {
 			    					<div className="form-group">
 										
 									<label className="form-label">First Name</label>
-			                <input type="text" name="firstName" id="first_name" className="form-control input-sm" placeholder="Enter First Name" onChange={(e) => setfirstName(e.target.value)} required/>
+			                <input type="text" name="firstName" id="first_name" className="form-control input-sm" placeholder="Enter First Name" pattern = "^[A-Za-z]{3,10}" onChange={(e) => setfirstName(e.target.value)} required/>
 			    					</div>
 			    				</div>
 			    				<div className="col-xs-6 col-sm-6 col-md-6">
 			    					<div className="form-group">
 									<label className="form-label">Last Name</label>
-			    						<input type="text" name="lastName" id="last_name" className="form-control input-sm" placeholder="Enter Last Name" onChange={(e) => setlastName(e.target.value)} required/>
+			    						<input type="text" name="lastName" id="last_name" className="form-control input-sm" placeholder="Enter Last Name" pattern = "^[A-Za-z]{3,10}" onChange={(e) => setlastName(e.target.value)} required/>
 			    					</div>
 			    				</div>
 			    			</div>
@@ -137,7 +137,7 @@ const SignUp = () => {
 										</div>
 										<div className="mb-3">
 											<label className="form-label">Password</label>
-											<input className="form-control form-control-lg" type="password" name="password" placeholder="Enter password" onChange={(e) => setpassword(e.target.value)}/>
+											<input className="form-control form-control-lg" type="password" name="password"  pattern = "^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{4,19}$" placeholder="Enter password" onChange={(e) => setpassword(e.target.value)} required/>
 										</div>
 
 												<div className="mb-3">
